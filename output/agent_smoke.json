@@ -1,0 +1,325 @@
+[
+  {
+    "ticket_id": 101,
+    "success": true,
+    "decision": {
+      "ticket_id": 101,
+      "status": "open",
+      "decision": "Cannot fulfill the request from recorded stock: quantity available is 0, leaving a shortfall of 1. Vendor and lead-time information are unavailable, so restock feasibility and timing cannot be confirmed. Keep the ticket open pending verified restock information; no order was placed and no vendor was contacted.",
+      "delegations": [
+        {
+          "from_role": "boss",
+          "to_role": "inventory",
+          "task": "For ticket 101, verify whether one CC-TEE-WHITE Classic Bulldog Tee size S can be fulfilled or restocked, including available stock, vendor, and lead time. Do not place an order or contact vendor.",
+          "ticket_id": 101
+        },
+        {
+          "from_role": "boss",
+          "to_role": "inventory",
+          "task": "Ticket 101: verify recorded stock for one CC-TEE-WHITE Classic Bulldog Tee, size S; report available quantity, any vendor and lead-time data, and whether fulfillment/restock can be confirmed. Do not place orders or contact vendors.",
+          "ticket_id": 101
+        }
+      ],
+      "findings": [
+        {
+          "role": "inventory",
+          "ticket_id": 101,
+          "summary": "One CC-TEE-WHITE Classic Bulldog Tee, size S, cannot be fulfilled from recorded stock: available quantity is 0 (shortfall of 1). The recorded inventory data provides no vendor or lead time, so restock feasibility and timing cannot be verified. No order was placed and no vendor was contacted. No related open invoices were returned.",
+          "facts": {
+            "sku": "CC-TEE-WHITE",
+            "product_name": "Classic Bulldog Tee",
+            "size": "S",
+            "available_quantity": 0,
+            "location": "Aisle B",
+            "requested_quantity": 1,
+            "shortfall": 1,
+            "related_open_invoices": [],
+            "vendor": null,
+            "lead_time_days": null,
+            "order_placed": false,
+            "vendor_contacted": false
+          },
+          "needs_human_approval": false
+        }
+      ]
+    }
+  },
+  {
+    "ticket_id": 102,
+    "success": true,
+    "decision": {
+      "ticket_id": 102,
+      "status": "resolved",
+      "decision": "The rent notice is addressed by the existing record: $2,400 for the Chapel Street shop was recorded paid from checking on 2026-08-31, ahead of the 2026-09-02 due date. No payment was made for this ticket and no external contact was initiated. Ticket data already marks it resolved.",
+      "delegations": [
+        {
+          "from_role": "boss",
+          "to_role": "facilities",
+          "task": "Review ticket 102 rent notice against lease and payment facts. Report whether rent is due/paid, due date, and any unresolved discrepancy; do not contact landlord or initiate payment.",
+          "ticket_id": 102
+        },
+        {
+          "from_role": "boss",
+          "to_role": "accounting",
+          "task": "For ticket 102, verify recorded rent payment against lease amount, date, and cash ledger; confirm whether rent appears paid and any cash implications. Do not pay or make an external contact.",
+          "ticket_id": 102
+        }
+      ],
+      "findings": [
+        {
+          "role": "facilities",
+          "ticket_id": 102,
+          "summary": "Ticket 102 is linked to lease 1 for the Chapel Street shop with Elm City Properties. The lease records monthly rent of $2,400 and next due date 2026-09-02. The desk date is 2026-08-31, so rent is upcoming, not overdue. Payment history records a $2,400 lease payment from checking on 2026-08-31, approved by Shop manager; the database therefore shows the rent as paid. No discrepancy is evident between the lease amount, due date, and recorded payment. The ticket note says rent was due in 2 days, consistent with the lease and desk date.",
+          "facts": {
+            "ticket_id": 102,
+            "lease_id": 1,
+            "space": "Chapel Street shop",
+            "landlord": "Elm City Properties",
+            "monthly_rent": 2400,
+            "due_date": "2026-09-02",
+            "desk_date": "2026-08-31",
+            "status": "upcoming, not overdue; payment recorded",
+            "payment": {
+              "amount": 2400,
+              "date": "2026-08-31",
+              "account": "checking",
+              "approved_by": "Shop manager"
+            },
+            "discrepancy": null
+          },
+          "needs_human_approval": false
+        },
+        {
+          "role": "accounting",
+          "ticket_id": 102,
+          "summary": "Recorded lease payment matches the $2,400 monthly rent for lease 1 (Chapel Street shop), due 2026-09-02. The ledger records a $2,400 checking payment on 2026-08-31, approved by the shop manager, so rent appears paid ahead of the due date. The recorded checking balance is $160 as of 2026-08-31; the payment leaves that balance, and the available record does not provide a pre-payment balance to independently reconcile the cash movement. No payment was made and no external contact was initiated.",
+          "facts": {
+            "lease_id": 1,
+            "monthly_rent": 2400.0,
+            "rent_due_date": "2026-09-02",
+            "recorded_payment_amount": 2400.0,
+            "recorded_payment_date": "2026-08-31",
+            "payment_account": "checking",
+            "payment_approved_by": "Shop manager",
+            "checking_balance_as_of_2026-08-31": 160.0,
+            "payment_matches_rent": true,
+            "rent_appears_paid": true
+          },
+          "needs_human_approval": false
+        }
+      ]
+    }
+  },
+  {
+    "ticket_id": 103,
+    "success": true,
+    "decision": {
+      "ticket_id": 103,
+      "status": "awaiting_approval",
+      "decision": "Do not fulfill or promise the 20-unit order yet. Only 8 size-M CC-HOOD-NAVY hoodies are in stock; 12 would need restocking at a recorded cost of $264. Checking has $160, a $104 shortfall, so the restock cannot be funded from current cash without making the balance negative. Vendor and lead time are unknown. The requested discount and any purchase or fulfillment commitment remain unapproved. Keep the ticket open pending human review of funding/purchase and discount decisions; no customer contact or vendor contact has occurred.",
+      "delegations": [
+        {
+          "from_role": "boss",
+          "to_role": "inventory",
+          "task": "Ticket 103: Verify current availability and restock quantity, vendor, lead time, and cost for 20 CC-HOOD-NAVY hoodies size M; report fulfillment constraints.",
+          "ticket_id": 103
+        },
+        {
+          "from_role": "boss",
+          "to_role": "accounting",
+          "task": "Ticket 103: Review affordability/cash implications of the needed restock and any discount request, identify cash constraints and approval requirements. Do not authorize purchase or discount.",
+          "ticket_id": 103
+        },
+        {
+          "from_role": "boss",
+          "to_role": "customer_service",
+          "task": "Ticket 103: Draft a customer-facing response explaining the current availability/constraint and requesting approval for any discount/commitment, without sending it.",
+          "ticket_id": 103
+        },
+        {
+          "from_role": "boss",
+          "to_role": "inventory",
+          "task": "Ticket 103: Provide the required database-backed inventory finding for CC-HOOD-NAVY size M, including stock and restock cost/lead time/vendor if facts exist.",
+          "ticket_id": 103
+        },
+        {
+          "from_role": "boss",
+          "to_role": "accounting",
+          "task": "Ticket 103: Provide database-backed finding on available cash/checking and whether $264 restock can be funded without negative cash; state discount/payment approval requirements. Do not authorize.",
+          "ticket_id": 103
+        },
+        {
+          "from_role": "boss",
+          "to_role": "customer_service",
+          "task": "Ticket 103: Provide requested database-backed draft finding for Yale AI Club on availability, restock constraints, and that discount/fulfillment are unapproved; do not contact customer.",
+          "ticket_id": 103
+        },
+        {
+          "from_role": "customer_service",
+          "to_role": "inventory",
+          "task": "For ticket 103, verify current size-M recorded stock and any relevant stock context for the requested quantity. Report facts only.",
+          "ticket_id": 103
+        },
+        {
+          "from_role": "customer_service",
+          "to_role": "accounting",
+          "task": "For ticket 103, review whether any requested bulk discount/commitment has approval. Report approval status and relevant financial facts; do not approve.",
+          "ticket_id": 103
+        },
+        {
+          "from_role": "customer_service",
+          "to_role": "inventory",
+          "task": "For ticket 103, verify current size-M recorded stock and any relevant stock context for the requested quantity. Report facts only.",
+          "ticket_id": 103
+        },
+        {
+          "from_role": "customer_service",
+          "to_role": "accounting",
+          "task": "For ticket 103, confirm whether the requested bulk discount or any purchase/commitment has been financially approved. Report status only; do not approve.",
+          "ticket_id": 103
+        },
+        {
+          "from_role": "customer_service",
+          "to_role": "inventory",
+          "task": "For ticket 103 (Yale AI Club), validate database-backed stock/restock facts for 20 Basic Hoodie Big Yale, SKU CC-HOOD-NAVY size M: recorded on-hand 8, short 12; restock cost/context and any constraint. Return facts for draft; do not contact requester.",
+          "ticket_id": 103
+        },
+        {
+          "from_role": "customer_service",
+          "to_role": "accounting",
+          "task": "For ticket 103, review requested bulk discount for Yale AI Club: 20 size-M CC-HOOD-NAVY Basic Hoodie Big Yale at list price $58 and unit cost $22. State approval status and whether any financial approval exists. Do not contact requester.",
+          "ticket_id": 103
+        }
+      ],
+      "findings": [
+        {
+          "role": "inventory",
+          "ticket_id": 103,
+          "summary": "CC-HOOD-NAVY (Basic Hoodie Big Yale), size M: 8 units are currently available in Aisle A. For the requested 20, the stock shortfall is 12 units. Recorded restock cost is $264 for 12 units (at $22/unit). Vendor and lead time are not present in the returned records. No related open invoices were returned. Fulfillment constraint: current stock alone cannot fill the request; the ticket record says the restock was not purchased and no purchase or discount was approved, so delivery timing is not confirmed.",
+          "facts": {
+            "sku": "CC-HOOD-NAVY",
+            "product_name": "Basic Hoodie Big Yale",
+            "size": "M",
+            "available_quantity": 8,
+            "location": "Aisle A",
+            "requested_quantity": 20,
+            "shortfall": 12,
+            "restock_quantity": 12,
+            "unit_cost": 22,
+            "restock_cost": 264,
+            "vendor": null,
+            "lead_days": null,
+            "open_related_invoices": [],
+            "purchase_approved": false,
+            "discount_approved": false,
+            "delivery_promised": false
+          },
+          "needs_human_approval": false
+        },
+        {
+          "role": "accounting",
+          "ticket_id": 103,
+          "summary": "The request is for 20 size-M navy hoodies, but inventory shows 8 available, leaving 12 units to restock. Recorded unit cost is $22, so the calculated restock cost is $264 (12 \u00d7 $22). The ticket records checking cash of $160, which is $104 short of that restock cost; proceeding at that cost would exceed available cash, so do not purchase. List price is $58 each; the calculated list-price total for 20 is $1,160, with recorded gross margin of $36 per unit ($720 on 20 at list price, before other costs). No discount has been calculated or approved. Purchase and any discount require human approval; no purchase or discount is authorized. No open related vendor invoices were found.",
+          "facts": {
+            "sku": "CC-HOOD-NAVY",
+            "size": "M",
+            "requested_quantity": 20,
+            "on_hand": 8,
+            "restock_quantity": 12,
+            "recorded_unit_cost": 22,
+            "calculated_restock_cost": 264,
+            "recorded_checking_balance": 160,
+            "cash_shortfall": 104,
+            "recorded_list_price": 58,
+            "calculated_list_price_total_for_20": 1160,
+            "calculated_gross_margin_per_unit_at_list": 36,
+            "calculated_gross_margin_for_20_at_list": 720,
+            "open_related_vendor_invoices": 0,
+            "discount_authorized": false,
+            "purchase_authorized": false
+          },
+          "needs_human_approval": true
+        },
+        {
+          "role": "customer_service",
+          "ticket_id": 103,
+          "summary": "Draft for customer (not sent): \u201cThanks for reaching out about 20 Basic Hoodie Big Yale hoodies in navy, size M. We currently have 8 size-M hoodies recorded in stock, so we cannot currently fulfill the full quantity of 20. The ticket notes that the additional 12-unit restock would cost $264, while the $160 checking balance is insufficient; no purchase or discount has been approved. A bulk discount or any purchase/fulfillment commitment would require review and approval. Please let us know whether you would like us to request that review; we can\u2019t confirm a discount or the full order at this time.\u201d",
+          "facts": {
+            "ticket_id": 103,
+            "requester": "Yale AI Club",
+            "product": "Basic Hoodie Big Yale",
+            "sku": "CC-HOOD-NAVY",
+            "size": "M",
+            "requested_quantity": 20,
+            "recorded_stock": 8,
+            "shortfall": 12,
+            "restock_cost_for_shortfall": 264,
+            "checking_balance": 160,
+            "discount_approved": false,
+            "purchase_or_fulfillment_commitment_approved": false,
+            "draft_not_sent": true
+          },
+          "needs_human_approval": true
+        },
+        {
+          "role": "inventory",
+          "ticket_id": 103,
+          "summary": "CC-HOOD-NAVY (Basic Hoodie Big Yale), size M: 8 units recorded in stock at Aisle A against the requested 20, a shortfall of 12. Recorded restock facts: the 12-unit restock would cost $264. No lead time or vendor is recorded, and there are no related open invoices. No purchase or delivery is confirmed.",
+          "facts": {
+            "sku": "CC-HOOD-NAVY",
+            "name": "Basic Hoodie Big Yale",
+            "size": "M",
+            "quantity_available": 8,
+            "location": "Aisle A",
+            "requested_quantity": 20,
+            "shortfall": 12,
+            "restock_quantity": 12,
+            "restock_cost": 264,
+            "restock_lead_days": null,
+            "vendor": null,
+            "related_open_invoices": [],
+            "purchase_or_delivery_confirmed": false
+          },
+          "needs_human_approval": false
+        },
+        {
+          "role": "accounting",
+          "ticket_id": 103,
+          "summary": "Database record states checking holds $160. The 12-unit restock costs $264, so it exceeds available checking by $104; funding it from that balance would make cash negative and cannot be funded without additional cash. No purchase or discount was approved. Any payment requires human approval, and discounts also require approval; I do not authorize either.",
+          "facts": {
+            "checking_balance": 160,
+            "restock_quantity": 12,
+            "restock_cost": 264,
+            "shortfall": 104,
+            "restock_fundable_without_negative_cash": false,
+            "purchase_approved": false,
+            "discount_approved": false,
+            "open_related_invoices": []
+          },
+          "needs_human_approval": true
+        },
+        {
+          "role": "customer_service",
+          "ticket_id": 103,
+          "summary": "Draft finding for Yale AI Club (do not send): Database records show 8 of the requested 20 Basic Hoodie Big Yale hoodies (SKU CC-HOOD-NAVY, size M) are currently in stock, leaving 12 unavailable from recorded stock. The ticket notes a 12-unit restock would cost $264; no purchase was approved, and no restock timing is confirmed. The requested bulk discount has not been approved. Fulfillment is also unapproved; do not promise availability or shipment.",
+          "facts": {
+            "product": "Basic Hoodie Big Yale",
+            "sku": "CC-HOOD-NAVY",
+            "size": "M",
+            "requested_quantity": 20,
+            "recorded_stock": 8,
+            "shortage": 12,
+            "list_price_per_unit_usd": 58,
+            "unit_cost_usd": 22,
+            "restock_cost_for_12_usd": 264,
+            "discount_approved": false,
+            "fulfillment_approved": false,
+            "purchase_approved": false,
+            "customer_contacted": false
+          },
+          "needs_human_approval": true
+        }
+      ]
+    }
+  }
+]

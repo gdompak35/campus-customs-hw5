@@ -1,0 +1,1 @@
+.agent-grid .agent:first-child{cursor:pointer}.agent-grid .agent:first-child::after{content:'Click for full findings';display:block;color:#b06c4e;font-size:10px;margin-top:9px;font-weight:700}

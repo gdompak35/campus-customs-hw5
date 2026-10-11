@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "campus-customs": {
+      "command": "py",
+      "args": ["-m", "mcp_server.server"],
+      "cwd": "C:\\Users\\gavin\\Downloads\\MGT 409 AI for Managers\\Homework 5"
+    }
+  }
+}

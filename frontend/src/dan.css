@@ -1,0 +1,1 @@
+.dan{position:fixed;z-index:5;right:7%;bottom:0;width:min(210px,24vw);max-height:360px;object-fit:contain;object-position:bottom;pointer-events:none;transform:translateY(105%);opacity:0;transition:transform .8s ease,opacity .8s ease}.dan.dan-visible{transform:translateY(0);opacity:1}@media(max-width:750px){.dan{width:150px}}

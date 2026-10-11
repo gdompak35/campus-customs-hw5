@@ -1,0 +1,31 @@
+{
+  "run": {
+    "starting_checking_balance": 3400.0,
+    "ending_checking_balance": 160.0,
+    "database": "data/campus_customs_new.db",
+    "cash_math": "3400 - 840 - 2400 = 160"
+  },
+  "tickets": [
+    {
+      "id": 101,
+      "final_status": "resolved",
+      "short_outcome": "Invoice 501 for the unavailable CC-TEE-WHITE size S reprint was human-approved and paid for $840; the linked ticket was finalized.",
+      "agent_contributions": {"Boss": "Delegated stock and restock review to Inventory and kept the order open pending facts.", "Inventory": "The MCP lookup recorded zero size-S stock and the related rush-reprint invoice.", "Accounting": "The invoice payment was applied only after human approval.", "Facilities": "No facilities work was needed.", "Customer Service": "No customer contact was made; the order remained a board draft."},
+      "human_approvals": [{"kind": "invoice", "reference": 501, "amount": 840.0, "approved_by": "Shop manager"}]
+    },
+    {
+      "id": 102,
+      "final_status": "resolved",
+      "short_outcome": "Lease 1 rent was human-approved and paid for $2,400; the rent ticket was finalized.",
+      "agent_contributions": {"Boss": "Delegated lease review to Facilities and kept payment approval with a human.", "Inventory": "No inventory work was needed.", "Accounting": "Verified the $2,400 payment against the $2,560 available checking balance.", "Facilities": "Used the MCP lease/date/payment facts to confirm the September 2 due date.", "Customer Service": "No landlord contact was made."},
+      "human_approvals": [{"kind": "lease", "reference": 1, "amount": 2400.0, "approved_by": "Shop manager"}]
+    },
+    {
+      "id": 103,
+      "final_status": "resolved",
+      "short_outcome": "Human-approved resolution declined fulfillment: 8 of 20 size-M hoodies were available, and the 12-unit restock would cost $264 against $160 cash. No purchase or discount was made.",
+      "agent_contributions": {"Boss": "Delegated inventory, accounting, and customer-service review and routed the final choice for human approval.", "Inventory": "The MCP lookup recorded 8 size-M units and a shortfall of 12.", "Accounting": "Recorded unit cost $22 and list price $58; no discount or purchase was approved.", "Facilities": "No facilities work was needed.", "Customer Service": "The resolution remains a board-ready refusal draft with no external message sent."},
+      "human_approvals": [{"kind": "resolution", "approved_by": "Shop manager", "outcome": "Unable to fulfill without negative cash."}]
+    }
+  ]
+}

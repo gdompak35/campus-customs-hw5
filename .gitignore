@@ -1,0 +1,12 @@
+.env
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+frontend/tsconfig.tsbuildinfo
+__pycache__/
+backend/__pycache__/
+mcp_server/__pycache__/
+*.pyc
+test_mcp.py
+test_agents.py
+mcp_server_error.txt
